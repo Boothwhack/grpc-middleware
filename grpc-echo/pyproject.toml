@@ -1,0 +1,20 @@
+[project]
+name = "grpc-echo"
+version = "0.1.0"
+
+[tool.uv]
+cache-keys = [
+    { file = "pyproject.toml" },
+    { file = "src/**/*.proto" },
+]
+
+[tool.distutils.build_grpc]
+proto_files = "src/**/*.proto"
+grpc_files = "src/**/*.proto"
+
+[build-system]
+requires = [
+    "setuptools>=80.3.1",
+    "setuptools-grpc==1.0.0b1",
+]
+build-backend = "setuptools.build_meta"

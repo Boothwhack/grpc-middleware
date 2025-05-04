@@ -1,0 +1,11 @@
+# python files
+*.egg-info
+.venv
+build
+dist
+
+# generated protobuf files
+*_pb2*
+
+# pycharm
+/.idea

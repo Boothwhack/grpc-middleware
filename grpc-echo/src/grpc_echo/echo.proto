@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+// Functions used to test every arity of rpc function.
+// Various variations of returning input back to the client, and optionally
+// provoking an error at any given point.
+service EchoService {
+  // returns input back to the client
+  rpc echo(EchoInput) returns (EchoOutput) {}
+
+  // echos every incoming input back to the client as they arrive
+  rpc echo_stream(stream EchoInput) returns (stream EchoOutput) {}
+
+  // echos each character in the input back to the client as separate outputs
+  rpc echo_chars(EchoInput) returns (stream EchoOutput) {}
+
+  // concatenates every input and returns the resulting string to the client
+  rpc echo_concat(stream EchoInput) returns (EchoOutput) {}
+}
+
+message ProduceError {
+  int32 status_code = 1;
+  string details = 2;
+}
+
+message EchoInput {
+  oneof value {
+    // echo back the given input
+    string input = 1;
+    // abort the current request with the given error
+    ProduceError error = 2;
+  }
+}
+
+message EchoOutput {
+  string output = 1;
+}
