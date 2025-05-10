@@ -1,0 +1,3 @@
+[*.toml]
+tab_width = 2
+align_comments = true
