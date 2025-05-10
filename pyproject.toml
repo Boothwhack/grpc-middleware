@@ -1,5 +1,51 @@
 [tool.uv.workspace]
 members = [
-    "grpc-echo",
-    "grpc-middleware",
+  "grpc-echo",
+  "grpc-middleware",
 ]
+
+[dependency-groups]
+dev = [
+  "pytest>=8.3.5",
+  "ruff>=0.11.9",
+]
+
+[tool.ruff]
+
+[tool.ruff.lint]
+select = [
+  "A",     # builtin shadowing
+  "ANN",   # missing type annotations
+  "ASYNC", # various common async errors
+  "BLE",   # blind exceptions
+  "FBT",   # boolean traps
+  "B",     # bugbear, various common footguns
+  "COM",   # trailing commas
+  "C4",    # comprehensions optimizations
+  # enable once project is more mature "D", # docstring
+  # enable once project is more mature "DOC", # docstring
+  "E",    # pycodestyle
+  "F",    # pyflakes
+  "I",    # sort imports
+  "N",    # enforce pep8 naming
+  "PERF", # performance improvements
+  "PT",   # pytest
+  "Q",    # prefer double quotes
+  "RET",  # return statements
+  "RUF",  # various
+  "SIM",  # simplify various constructs
+  "SLF",  # restrict private members to self
+  "TRY",  # better try-excepts
+  "UP",   # prefer new language feature
+  "W",    # pycodestyle
+]
+ignore = [
+  # Checks for missing explicit return statements in non-None returning functions.
+  # Does not consider functions marked with NoReturn.
+  # Omissions will be caught by type-checker.
+  "RET503",
+]
+
+[tool.ruff.lint.flake8-annotations]
+# Allow None returning functions to omit annotating return type.
+suppress-none-returning = true

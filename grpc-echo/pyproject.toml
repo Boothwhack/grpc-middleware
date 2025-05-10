@@ -1,20 +1,31 @@
 [project]
 name = "grpc-echo"
 version = "0.1.0"
+dependencies = [
+  "grpcio>=1.71.0",
+  "protobuf>=5.26.1,<6.0.0",
+]
 
 [tool.uv]
 cache-keys = [
-    { file = "pyproject.toml" },
-    { file = "src/**/*.proto" },
+  { file = "pyproject.toml" },
+  { file = "src/**/*.proto" },
 ]
 
+[tool.ruff]
+extend = "../pyproject.toml"
+
 [tool.distutils.build_grpc]
-proto_files = "src/**/*.proto"
-grpc_files = "src/**/*.proto"
+proto_files = "**/*.proto"
+grpc_files = "**/*.proto"
+proto_path = "./src"
+output_path = "./src"
 
 [build-system]
 requires = [
-    "setuptools>=80.3.1",
-    "setuptools-grpc==1.0.0b1",
+  "grpcio-tools>=1.71.0",
+  "protobuf>=5.26.1,<6.0.0",
+  "setuptools>=80.3.1",
+  "setuptools-grpc==1.0.0b1",
 ]
 build-backend = "setuptools.build_meta"
