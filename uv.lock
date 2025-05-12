@@ -42,7 +42,7 @@ requires-dist = [
 [[package]]
 name = "grpc-middleware"
 version = "0.1.0"
-source = { virtual = "grpc-middleware" }
+source = { editable = "grpc-middleware" }
 dependencies = [
     { name = "grpcio" },
     { name = "protobuf" },
