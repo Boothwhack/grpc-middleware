@@ -7,7 +7,7 @@ dependencies = [
   "protobuf>=5.26.1,<6.0.0",
 ]
 
-[tool.uv]
+[tool.ruff]
 extend = "../pyproject.toml"
 
 [dependency-groups]
