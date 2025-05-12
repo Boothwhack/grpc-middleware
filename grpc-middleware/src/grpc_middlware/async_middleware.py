@@ -1,6 +1,5 @@
 from abc import ABC, abstractmethod
-from collections.abc import AsyncIterator, Awaitable
-from typing import Callable
+from collections.abc import AsyncIterator, Awaitable, Callable
 
 from google.protobuf.message import Message
 
@@ -13,7 +12,7 @@ class Context:
     pass
 
 
-class AsyncClientMiddleware(ABC):
+class AsyncMiddleware(ABC):
     @abstractmethod
     async def on_request(
         self,
