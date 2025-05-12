@@ -35,7 +35,6 @@ select = [
   "RET",  # return statements
   "RUF",  # various
   "SIM",  # simplify various constructs
-  "SLF",  # restrict private members to self
   "TRY",  # better try-excepts
   "UP",   # prefer new language feature
   "W",    # pycodestyle
